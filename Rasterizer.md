@@ -45,7 +45,9 @@ public class TutorialWorldRasterizer implements WorldRasterizer {
     @Override
     public void generateChunk(CoreChunk chunk, Region chunkRegion) {
         for(Vector3i position : ChunkConstants.CHUNK_REGION) {
-            chunk.setBlock(position, dirt);
+            if( position.y < 0) {
+                chunk.setBlock(position, dirt);
+            }
         }
     }
 }
