@@ -19,9 +19,9 @@ And plug it in to our facet data
 And if you are luckly like me,  you end up with a bumpy patch of dirt as the noise is only between -1 and 1
 
 Lets smooth it out a little bit by using subsampling (lerps between noise values) to gradually get to varius noise values. And scale it up a bit so that we can get random surface values that are more interesting.
-'''java
+```java
         facet.setWorld(position, surfaceNoise.noise(position.x, position.y) * 20);
-'''
+```
 ```java
     @Override
     public void setSeed(long seed) {
