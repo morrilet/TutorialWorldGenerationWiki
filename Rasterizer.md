@@ -72,7 +72,9 @@ java.lang.NullPointerException: null
 	at org.terasology.logic.players.PlayerSystem.getSafeSpawnPosition(PlayerSystem.java:133) ~[classes/:na]
 ```
 
-Not exactly what we wanted.  We need to provide surface information so that the spawn algorithm can find where the surface is and gently place new players there.  [next step](FacetProduction)
+Not exactly what we wanted.  We need to provide surface information so that the spawn algorithm can find where the surface is and gently place new players there.  
+
+[Next: Facet Production](Facet Production)
 
 
 
