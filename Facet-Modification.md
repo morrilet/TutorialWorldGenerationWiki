@@ -43,3 +43,5 @@ And we add it to our world builder:
 ```
 
 And now we have the cliffs of insanity!
+
+![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Facet%20Modification.png)
