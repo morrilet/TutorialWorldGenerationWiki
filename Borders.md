@@ -4,7 +4,7 @@ We need to change our ```HouseProvider' to grab a larger surface height area so 
 
 ```java
 @Produces(HouseFacet.class)
-@Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(bottom = 4, sides = 4)))
+@Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(bottom = 9, sides = 4)))
 public class HouseProvider implements FacetProvider {
 ```
 
