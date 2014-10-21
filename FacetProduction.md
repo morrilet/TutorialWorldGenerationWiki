@@ -66,4 +66,6 @@ Be sure to get your x and z correct.  The surface height facet is 2d (x,y) and t
 
 Exciting times... lots of dirt... at y=10
 
+![Facet Production](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Facet%20Production.png)
+
 [Noise Sampling](NoiseSampling)
