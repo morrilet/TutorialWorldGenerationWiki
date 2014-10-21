@@ -94,7 +94,7 @@ public class HouseRasterizer implements WorldRasterizer {
 
 Bingo.  The world is now a village of boring stone dwelling hermits!
 
-![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/RequiresFacetProduction.png)
+![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/RequiresFacetProduction1.png)![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/RequiresFacetProduction2.png)
 
 Notice though that there is problems. Some houses are missing walls and roofs.  This will happen at the chunk boundary where the neighboring chunk does not know that it should be generating the edge of the house in its chunk.
 
