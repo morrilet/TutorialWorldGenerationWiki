@@ -58,7 +58,7 @@ public class HouseRasterizer implements WorldRasterizer {
     @Override
     public void generateChunk(CoreChunk chunk, Region chunkRegion) {
         HouseFacet houseFacet = chunkRegion.getFacet(HouseFacet.class);
-        for (Vector3i position : houseFacet.getWorldRegion()) {
+        for (Vector3i position : chunkRegion.getRegion()) {
             if (houseFacet.getWorld(position)) {
                 // there should be a house here
                 // create a couple 3d regions to help iterate through the cube shape, inside and out
