@@ -1,6 +1,6 @@
 1. [Rasterizer](Rasterizer)
 2. [Facet Production](FacetProduction)
 3. [Noise Sampling](NoiseSampling)
-4. [Additional Facet Production](RequiresFacetProduction)
-5. [Facet Modification](FacetModification)
+4. [Facet Modification](Facet Modification)
+5. [Additional Facet Production](RequiresFacetProduction)
 6. [Reach Beyond Facet Borders](FacetBorders)
