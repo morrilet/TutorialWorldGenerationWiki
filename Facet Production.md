@@ -68,4 +68,4 @@ Exciting times... lots of dirt... at y=10
 
 ![Facet Production](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Facet%20Production.png)
 
-[Noise Sampling](NoiseSampling)
+[Next: Noise Sampling](Noise Sampling)
