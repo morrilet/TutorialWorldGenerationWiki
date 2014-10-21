@@ -31,3 +31,5 @@ Lets smooth it out a little bit by using subsampling (lerps between noise values
 Progress!  Now we have some rolling hills.
 
 ![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Noise%20Sampling.png)
+
+[Next: Facet Modification](Facet Modification)
