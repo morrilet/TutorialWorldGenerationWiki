@@ -20,4 +20,5 @@ Accomodating this newly found padding on our facet data in our ```HouseRasterize
 
 Woot!  Now, *all* our houses have no way of entry or exit... oh wait. <grabs pickaxe>
 
-![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Borders.png)
+![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Borders1.png)
+![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Borders2.png)
