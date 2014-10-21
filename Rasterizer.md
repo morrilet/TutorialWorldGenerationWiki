@@ -44,14 +44,16 @@ public class TutorialWorldRasterizer implements WorldRasterizer {
 
     @Override
     public void generateChunk(CoreChunk chunk, Region chunkRegion) {
-        for(Vector3i position : ChunkConstants.CHUNK_REGION) {
-            if( position.y < 0) {
-                chunk.setBlock(position, dirt);
+        for(Vector3i position : chunkRegion.getRegion()) {
+            if(position.y < 0) {
+                chunk.setBlock(TeraMath.calcBlockPos(position), dirt);
             }
         }
     }
 }
 ```
+
+Careful to change your world coordinates from the region into local coordinates when setting the block on the chunk.
 
 And add it to our world builder:
 
