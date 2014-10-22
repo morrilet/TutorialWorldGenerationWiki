@@ -1,6 +1,6 @@
 There is an easy solution to our houses with missing walls.  Borders!  Borders will effectively extend the range of our facet data into the neighboring chunk.  That way when we are rasterizing our houses,  we can know where the locations of nearby houses are.
 
-We need to change our ```HouseProvider' to grab a larger surface height area so that we can still put the houses at the right height.
+We need to change our ```HouseProvider``` to grab a larger surface height area so that we can still put the houses at the right height.
 
 ```java
 @Produces(HouseFacet.class)
