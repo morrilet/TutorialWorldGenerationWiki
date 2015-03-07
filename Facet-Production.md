@@ -56,7 +56,7 @@ Now, when we run the rasterizer, we can access this facet data that we have prov
         SurfaceHeightFacet surfaceHeightFacet = chunkRegion.getFacet(SurfaceHeightFacet.class);
         for(Vector3i position : chunkRegion.getRegion()) {
             if(position.y < surfaceHeightFacet.getWorld(position.x, position.z)) {
-                chunk.setBlock(TeraMath.calcBlockPos(position), dirt);
+                chunk.setBlock(ChunkMath.calcBlockPos(position), dirt);
             }
         }
     }
