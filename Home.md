@@ -5,6 +5,8 @@
 5. [Additional Facet Production](Additional Facet Production)
 6. [Facet Borders](Borders)
 
+[[Getting started with the WorldViewer]]
+
 More Advanced
 - Facets with complex object data, not just block data
 - Plugins to existing world generation
