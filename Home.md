@@ -1,3 +1,15 @@
+##Tutorial for 53.2+
+
+1. [Rasterizer](53.2-Rasterizer)
+2. [Facet Production](53.2-Facet Production)
+3. [Noise Sampling](53.2-Noise Sampling)
+4. [Facet Modification](53.2-Facet Modification)
+5. [Additional Facet Production](53.2-Additional Facet Production)
+6. [Facet Borders](53.2-Borders)
+
+***
+
+##Tutorial for before 53.2
 1. [Rasterizer](Rasterizer)
 2. [Facet Production](Facet Production)
 3. [Noise Sampling](Noise Sampling)
