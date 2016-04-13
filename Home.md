@@ -7,6 +7,8 @@
 6. [Facet Borders](1.x-Borders)
 7. [Plugins](1.x-Plugins)
 
+[Common errors you can avoid](Common-errors-you-can-avoid)
+
 ##Tutorial for 0.53.2+
 
 1. [Rasterizer](53.2-Rasterizer)
