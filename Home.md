@@ -1,4 +1,4 @@
-##Tutorial for 1.x+
+##Tutorial
 1. [Rasterizer](1.x-Rasterizer)
 2. [Facet Production](1.x-Facet Production)
 3. [Noise Sampling](1.x-Noise Sampling)
