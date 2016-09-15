@@ -9,13 +9,7 @@
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
 
-
 ***
-
-##Tutorial for before 0.53.2
-4. [Facet Modification](Facet Modification)
-5. [Additional Facet Production](Additional Facet Production)
-6. [Facet Borders](Borders)
 
 [[Getting started with the WorldViewer]]
 
