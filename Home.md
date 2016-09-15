@@ -5,7 +5,7 @@
 4. [Facet Modification](Facet Modification)
 5. [Additional Facet Production](Additional Facet Production)
 6. [Facet Borders](Borders)
-7. [Plugins](1.x-Plugins)
+7. [Plugins](Plugins)
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
 [[Getting started with the WorldViewer]]
