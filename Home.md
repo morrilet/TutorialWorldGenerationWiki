@@ -1,6 +1,6 @@
 ##Tutorial
-1. [Rasterizer](1.x-Rasterizer)
-2. [Facet Production](1.x-Facet Production)
+1. [Rasterizer](Rasterizer)
+2. [Facet Production](Facet Production)
 3. [Noise Sampling](1.x-Noise Sampling)
 4. [Facet Modification](1.x-Facet Modification)
 5. [Additional Facet Production](1.x-Additional Facet Production)
