@@ -13,7 +13,6 @@
 ***
 
 ##Tutorial for before 0.53.2
-3. [Noise Sampling](Noise Sampling)
 4. [Facet Modification](Facet Modification)
 5. [Additional Facet Production](Additional Facet Production)
 6. [Facet Borders](Borders)
