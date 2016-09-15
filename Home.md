@@ -4,7 +4,7 @@
 3. [Noise Sampling](Noise Sampling)
 4. [Facet Modification](Facet Modification)
 5. [Additional Facet Production](Additional Facet Production)
-6. [Facet Borders](1.x-Borders)
+6. [Facet Borders](Borders)
 7. [Plugins](1.x-Plugins)
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
