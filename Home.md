@@ -8,6 +8,7 @@
 7. [Plugins](Plugins)
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
+
 [[Getting started with the WorldViewer]]
 
 More Advanced
