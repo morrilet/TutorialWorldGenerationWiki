@@ -3,7 +3,7 @@
 2. [Facet Production](Facet Production)
 3. [Noise Sampling](Noise Sampling)
 4. [Facet Modification](Facet Modification)
-5. [Additional Facet Production](1.x-Additional Facet Production)
+5. [Additional Facet Production](Additional Facet Production)
 6. [Facet Borders](1.x-Borders)
 7. [Plugins](1.x-Plugins)
 
