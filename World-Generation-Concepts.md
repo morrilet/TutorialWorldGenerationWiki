@@ -4,3 +4,9 @@ The world gen code works from the idea that a World is multi-faceted. The word f
 
 ## Rasterizing(interpreting) the facet data
 The FacetProvider stuffs it's data into a class called a GeneratingRegion which keeps up with all the facet data and makes it accessible to other FacetProviders but also to WorldRasterizers. The WorldRasterizer interprets the facet data and places blocks into the world based on that data. 
+
+## Borders
+TODO
+
+##World Builder and the plugin system
+TODO
