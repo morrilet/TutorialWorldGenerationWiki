@@ -23,4 +23,4 @@ Woot!  Now, *all* our houses have no way of entry or exit... oh wait. <grabs pic
 ![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Borders1.png)
 ![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Borders2.png)
 
-[Next: PlugIns](1.x-Plugins)
+[Next: PlugIns](Plugins)
