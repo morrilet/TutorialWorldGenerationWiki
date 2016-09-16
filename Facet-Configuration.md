@@ -96,3 +96,4 @@ Run the code and you should see your options in the "Details" screen as in the s
 
 ![Facet Configuration2](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/FacetConfiguration2.png)
 
+[Next: Additional Facet Production](Additional Facet Production)
