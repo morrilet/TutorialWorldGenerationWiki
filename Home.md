@@ -21,4 +21,3 @@ Read this first if you want to get a general idea of how the world generation co
 More Advanced
 - Facets with complex object data, not just block data
 - Biomes
-- Adding user defined configuration
