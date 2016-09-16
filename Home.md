@@ -6,6 +6,7 @@
 5. [Additional Facet Production](Additional Facet Production)
 6. [Facet Borders](Borders)
 7. [Plugins](Plugins)
+8. [Facet Configuration](Facet Configuration)
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
 
