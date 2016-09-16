@@ -1,5 +1,6 @@
 ##Overview
-[World-Generation-Concepts](World-Generation-Concepts)
+Read this first if you want to get a general idea of how the world generation code is structured. If you want to jump straight into the code then skip this and start the tutorial. You can always come back here later.
+[World Generation Concepts](World-Generation-Concepts)
 
 ##Tutorial
 1. [Rasterizer](Rasterizer)
