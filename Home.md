@@ -3,10 +3,11 @@
 2. [Facet Production](Facet Production)
 3. [Noise Sampling](Noise Sampling)
 4. [Facet Modification](Facet Modification)
-5. [Additional Facet Production](Additional Facet Production)
-6. [Facet Borders](Borders)
-7. [Plugins](Plugins)
-8. [Facet Configuration](Facet Configuration)
+5. [Facet Configuration](Facet Configuration)
+6. [Additional Facet Production](Additional Facet Production)
+7. [Facet Borders](Borders)
+8. [Plugins](Plugins)
+9. [Facet Configuration](Facet Configuration)
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
 
