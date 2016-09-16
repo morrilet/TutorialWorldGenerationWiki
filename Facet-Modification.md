@@ -46,4 +46,4 @@ And now we have the cliffs of insanity!
 
 ![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Facet%20Modification.png)
 
-[Next: Additional Facet Production](1.x-Additional Facet Production)
+[Next: Additional Facet Production](Additional Facet Production)
