@@ -77,5 +77,5 @@ java.lang.IllegalStateException: surface height facet not found
 
 Not exactly what we wanted.  We need to provide surface information so that the spawn algorithm can find where the surface is and gently place new players there.  
 
-[Next: Facet Production](1.x-Facet Production)
+[Next: Facet Production](Facet Production)
 
