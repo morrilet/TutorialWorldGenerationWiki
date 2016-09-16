@@ -23,7 +23,7 @@ public interface ConfigurableFacetProvider extends FacetProvider {
 ```
 The UI will create a new collapsible section of information for your FacetProvider and the name of that section will be the result of getConfigurationName(). So let's name this one "Mountains". The getConfiguration and setConfiguration gives the UI access to your MountainsConfiguration object. Let's create an instance variable at the top of our class and instantiate it. Then we can fill in the other two methods. Below is the resulting class.
 
-`
+```java
 @Updates(@Facet(SurfaceHeightFacet.class))
 public class MountainsProvider implements ConfigurableFacetProvider {
 
@@ -76,7 +76,8 @@ public class MountainsProvider implements ConfigurableFacetProvider {
         @Range(min = 200, max = 500f, increment = 20f, precision = 1, description = "Mountain Height")
         private float mountainHeight = 400;
     }
-}`
+}
+```
 
 
 
