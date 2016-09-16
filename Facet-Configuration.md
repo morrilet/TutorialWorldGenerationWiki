@@ -1,0 +1,1 @@
+You can allow your FacetProvider to be configured by implementing ConfigurableFacetProvider and providing a custom configuration class that implements Component.  The user interface will automatically detect this and provide the user with configuration options based on your custom configuration classes. 
