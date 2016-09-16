@@ -3,10 +3,10 @@ You can allow your FacetProvider to be configured by implementing ConfigurableFa
 Let's allow users to configure the height of the mountains in the MountainsProvider. First let's create an inner class called MountainsConfiguration inside our MountainsProvider class and make it implement Component. 
 
 ```java
-    private static class MountainsConfiguration implements Component {
-        @Range(min = 200, max = 500f, increment = 20f, precision = 1, description = "Mountain Height")
-        private float mountainHeight = 400;
-    }
+private static class MountainsConfiguration implements Component {
+    @Range(min = 200, max = 500f, increment = 20f, precision = 1, description = "Mountain Height")
+    private float mountainHeight = 400;
+}
 ```
 
 Notice the @Range annotation. This tells the UI what components to render for the user. There are more annotations available like @TextField, @Checkbox and @OneOf but @Range is generally the one you will use for your world gen configurations. If you want to know more about those components you can check out the classes in org.terasology.rendering.nui. 
@@ -40,7 +40,7 @@ public class MountainsProvider implements ConfigurableFacetProvider {
     @Override
     public void process(GeneratingRegion region) {
         SurfaceHeightFacet facet = region.getRegionFacet(SurfaceHeightFacet.class);
-        float mountainHeight = configuration.mountainHeight;
+        float mountainHeight = 400;
         // loop through every position on our 2d array
         Rect2i processRegion = facet.getWorldRegion();
         for (BaseVector2i position : processRegion.contents()) {
@@ -79,9 +79,19 @@ public class MountainsProvider implements ConfigurableFacetProvider {
 }
 ```
 
+The above code has one mistake in it. Can you spot it? We aren't using our configurable mountain height in the process() method. We need to change 
+```java
+float mountainHeight = 400;
+```
+to
+```java
+float mountainHeight = configuration.mountainHeight;
+```
 
+Run the code and you should see your options in the "Details" screen as in the screenshots below. 
 
-When creating a new world you can click the "Details" button in the bottom right to access the configuration options you have exposed. 
+**NOTE**: You can have multiple @Ranges in your configuration class. Each one will show up under your configuration section(Mountains in this case). 
+
 ![Facet Configuration1](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/FacetConfiguration1.png)
 
 ![Facet Configuration2](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/FacetConfiguration2.png)
