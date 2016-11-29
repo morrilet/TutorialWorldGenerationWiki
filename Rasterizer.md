@@ -1,9 +1,10 @@
-First off, one must create a world generator to add our new facet generation to.  I copy/pasted from Core and stripped it down to its bare minimum.
+First off, create a new module that our world generator will be located in. A guide to creating and working with modules can be found at https://github.com/MovingBlocks/Terasology/wiki/Developing-Modules.
+
+When the module is set up and running, add a new world generator class to it- for now, let's use this bare minimum template from the Core module:
 
 ```java
 @RegisterWorldGenerator(id = "tutorialWorld", displayName = "Tutorial World")
 public class TutorialWorldGenerator extends BaseFacetedWorldGenerator{
-
     @In
     private WorldGeneratorPluginLibrary worldGeneratorPluginLibrary;
     
@@ -15,11 +16,10 @@ public class TutorialWorldGenerator extends BaseFacetedWorldGenerator{
     protected WorldBuilder createWorld() {
         return new WorldBuilder(worldGeneratorPluginLibrary);
     }
-
 }
 ```
 
-Next we need to add a rasterizer to put blocks into the world when a chunk is generated. And you end up with this:
+Next, we need to add a rasterizer - this is the class that will put blocks into the world when a chunk is generated:
 
 ```java
 public class TutorialWorldRasterizer implements WorldRasterizer {
@@ -33,9 +33,9 @@ public class TutorialWorldRasterizer implements WorldRasterizer {
 }
 ```
 
-In the generate chunk is where the magic will happen.  The ```chunk``` parameter interacts directly with chunk storage where you can place blocks.  The ```chunkRegion``` parameter holds metadata about the world.  There will be nothing in the ```chunkRegion``` right now,  but we will get there.
+The `generateChunk()` method is where the magic will happen - the ```chunk``` parameter interacts directly with chunk storage where you can place blocks, while the ```chunkRegion``` parameter holds metadata about the world.  There's nothing in the ```chunkRegion``` method right now,  but we will get there soon enough :)
 
-Next let us add some basic rasterization where everything below y=0 is dirt.
+Now let's add some basic rasterization, replacing every block below y=0 with dirt.
 
 ```java
 public class TutorialWorldRasterizer implements WorldRasterizer {
@@ -48,8 +48,8 @@ public class TutorialWorldRasterizer implements WorldRasterizer {
 
     @Override
     public void generateChunk(CoreChunk chunk, Region chunkRegion) {
-        for(Vector3i position : chunkRegion.getRegion()) {
-            if(position.y < 0) {
+        for (Vector3i position : chunkRegion.getRegion()) {
+            if (position.y < 0) {
                 chunk.setBlock(ChunkMath.calcBlockPos(position), dirt);
             }
         }
@@ -57,9 +57,9 @@ public class TutorialWorldRasterizer implements WorldRasterizer {
 }
 ```
 
-Careful to change your world coordinates from the region into local coordinates when setting the block on the chunk.
+Note that you should always change your coordinates from regional to local when setting the block on the chunk.
 
-And add it to our world builder:
+Finally, let's add the rasterizer to the world builder:
 
 ```java
     @Override
@@ -69,13 +69,12 @@ And add it to our world builder:
     }
 ```
 
-And after we enable the module in game and select the "Tutorial World Generator" voila...
+And after we enable the module in game and select the "Tutorial World Generator" - voila!
 
 ```
 java.lang.IllegalStateException: surface height facet not found
 ```
 
-Not exactly what we wanted.  We need to provide surface information so that the spawn algorithm can find where the surface is and gently place new players there.  
+...well, that's not quite what we wanted. To get our world generator working, we also need to provide surface information so that the spawn algorithm can find where the surface is and gently place new players there. 
 
 [Next: Facet Production](Facet Production)
-
