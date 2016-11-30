@@ -27,7 +27,7 @@ public void process(GeneratingRegion region) {
 
     // Loop through every position in our 2d array
     Rect2i processRegion = facet.getWorldRegion();
-    for (Vector2i position: processRegion) {
+    for (BaseVector2i position: processRegion) {
         facet.setWorld(position, 10f);
     }
 
@@ -41,9 +41,12 @@ Some key points to note is that `facet.getWorldRegion()` refers to world coordin
 We then add this to our world builder:
 
 ```java
+@In
+private WorldGeneratorPluginLibrary worldGeneratorPluginLibrary;
+
 @Override
-protected WorldBuilder createWorld(long seed) {
-    return new WorldBuilder(seed)
+protected WorldBuilder createWorld() {
+    return new WorldBuilder(worldGeneratorPluginLibrary)
            .addProvider(new SurfaceProvider())
            .addProvider(new SeaLevelProvider(0))
            .addRasterizer(new TutorialWorldRasterizer());
