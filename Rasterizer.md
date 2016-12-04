@@ -65,7 +65,7 @@ Finally, let's add the rasterizer to the world builder:
     @Override
     protected WorldBuilder createWorld() {
         return new WorldBuilder(worldGeneratorPluginLibrary)
-                .addRasterizer(new WorldRasterizer());
+                .addRasterizer(new TutorialWorldRasterizer());
     }
 ```
 
