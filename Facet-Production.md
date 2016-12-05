@@ -27,7 +27,7 @@ public void process(GeneratingRegion region) {
 
     // Loop through every position in our 2d array
     Rect2i processRegion = facet.getWorldRegion();
-    for (BaseVector2i position: processRegion) {
+    for (BaseVector2i position: processRegion.contents()) {
         facet.setWorld(position, 10f);
     }
 
