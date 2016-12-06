@@ -10,7 +10,7 @@ public class HouseProvider implements FacetProvider {
 
 Now if you remember, we have this line further down ```Border3D border = region.getBorderForFacet(HouseFacet.class);``` which asks the region to get an appropriate border for the particular facet.  Luckily we have done this same procedure in the ```SurfaceProvider``` and the facet system knows that you are requesting some padding on the sides and bottom of the facet data.
 
-Accomodating this newly found padding on our facet data in our ```HouseRasterizer``` is easy to do.  All we must do is iterate through the facet's region as apposed to the normal chunk region.
+Accomodating this newly found padding on our facet data in our ```HouseRasterizer``` is easy to do.  All we must do is iterate through the facet's region as opposed to the normal chunk region.
 ```java
 @Override
 public void generateChunk(CoreChunk chunk, Region chunkRegion) {
