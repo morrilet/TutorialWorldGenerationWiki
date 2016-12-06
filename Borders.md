@@ -12,13 +12,16 @@ Now if you remember, we have this line further down ```Border3D border = region.
 
 Accomodating this newly found padding on our facet data in our ```HouseRasterizer``` is easy to do.  All we must do is iterate through the facet's region as apposed to the normal chunk region.
 ```java
- @Override
-    public void generateChunk(CoreChunk chunk, Region chunkRegion) {
-        HouseFacet houseFacet = chunkRegion.getFacet(HouseFacet.class);
-        for (Vector3i position : houseFacet.getWorldRegion()) {
+@Override
+public void generateChunk(CoreChunk chunk, Region chunkRegion) {
+    HouseFacet houseFacet = chunkRegion.getFacet(HouseFacet.class);
+    for (Entry<BaseVector3i, House> entry : houseFacet.getWorldEntries().entrySet()) {
+        /* ... */
+    }
+}
 ```
 
-Woot!  Now, *all* our houses have no way of entry or exit... oh wait. <grabs pickaxe>
+Woot!  Now, *all* our houses have no way of entry or exit... oh wait. _grabs pickaxe_
 
 ![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Borders1.png)
 ![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Borders2.png)
