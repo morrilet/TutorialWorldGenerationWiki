@@ -27,22 +27,22 @@ Okay. That seems a whole lot of work. First things first.
 We should start out with creating our classes. (Try to find the solution on these issues yourself first before copying it from here! It's the best practise!)
 
 **Our Facet**
-`
+```java
 public class TempleFacet extends SparseObjectFacet3D<Temple> {
 
     public TempleFacet(Region3i targetRegion, Border3D border) {
         super(targetRegion, border);
     }
 }
-`
+```
 
 
 
 **Our FacetProvider**
-`
+```java
 @Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(sides = 28, bottom = 28, top = 28)))
 @Produces(TempleFacet.class)
-public class TimsTempleStructureProvider implements FacetProvider {
+public class TempleFacetProvider implements FacetProvider {
     private WhiteNoise noise;
 
     @Override
@@ -71,7 +71,7 @@ public class TimsTempleStructureProvider implements FacetProvider {
         noise = new WhiteNoise(seed);
     }
 }
-`
+```
 
 
 
