@@ -1,5 +1,7 @@
 # Complex shapes and Facets across borders
 
+## **Basic topics**
+
 Many people have issues understanding what's going on with the facets across borders.
 This is a short tutorial to help you understand it better, pictures included in the following tutorials.
 First of all, you need to understand the structure of how the world generation works. The Terasology developers have made a clear structure in this, so everyone is able to add new and great world generators. You have:
@@ -23,8 +25,14 @@ Simple enough? Well, let's get started with some tips on how to make some more c
 Let us start with a problem definition, what do we want?
 > We want to have a good looking pyramid to show off to my friends. It must have some sort of path to get to the center. No more than a few pyramids should spawn on a short distance, so it doesn't get too crowded. We also want to make sure that the pyramid isn't floating!
 
+
+
+
+
 Okay. That seems a whole lot of work. First things first.
 We should start out with creating our classes. (Try to find the solution on these issues yourself first before copying it from here! It's the best practice!)
+
+## **Basic setup**
 
 **Our Facet**
 ```java
@@ -72,10 +80,14 @@ public class TempleRasterizer implements WorldRasterizer {
 
 ```
 
+
+
+
+
 Now we have set up you can continue.
 We only have to change two classes basically, the provider and the rasterizer.
 
-_**Adding the Meat!**_
+## **Adding the Meat!**
 **The TempleFacetProvider**
 
 ```java
