@@ -75,10 +75,12 @@ public class TempleRasterizer implements WorldRasterizer {
 Now we have set up you can continue.
 We only have to change two classes basically, the provider and the rasterizer.
 
-```java
-
 _**Adding the Meat!**_
 **The TempleFacetProvider**
+
+```java
+
+
 
 @Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(sides = 28, bottom = 28, top = 28)))
 @Produces(TempleFacet.class)
