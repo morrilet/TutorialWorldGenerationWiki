@@ -77,6 +77,7 @@ We only have to change two classes basically, the provider and the rasterizer.
 
 ```java
 
+_**Adding the Meat!**_
 **The TempleFacetProvider**
 
 @Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(sides = 28, bottom = 28, top = 28)))
