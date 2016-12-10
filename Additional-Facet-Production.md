@@ -9,6 +9,12 @@ public class HouseFacet extends BaseBooleanFieldFacet3D {
     }
 }
 ```
+There are multiple other options to choose from, but generally they are grouped on their amount of dimensions.
+An amount of dimensions in this case is just 2D or 3D. You have a whole lot of these to choose from!
+Check it out here: https://github.com/MovingBlocks/Terasology/tree/develop/engine/src/main/java/org/terasology/world/generation/facets/base
+As the name suggests, these are base classes. Interfaces are also in that package.
+
+
 Easy when immortius has already created the plumbing!  
 
 Now the ```FacetProvider```:
@@ -26,6 +32,10 @@ public class HouseProvider implements FacetProvider {
 
     @Override
     public void process(GeneratingRegion region) {
+
+        //Don't forget you sometimes have to extend the borders.
+        //extendBy(top, bottom, sides) is the method used for this.
+
         Border3D border = region.getBorderForFacet(HouseFacet.class);
         HouseFacet facet = new HouseFacet(region.getRegion(), border);
         SurfaceHeightFacet surfaceHeightFacet = region.getRegionFacet(SurfaceHeightFacet.class);
@@ -43,6 +53,9 @@ public class HouseProvider implements FacetProvider {
     }
 }
 ```
+You are probably wondering why the getWorldRegion() method returns an iterable 'list' of Vector2i's. The reason behind this was explained above. Compare the getWorldRegion() to a map of the Earth. The map has coordinates, x and y. The y-coordinate does NOT specify the height of the terrain. Here in this example it's the 3D-world z-coordinate.
+An instance of SurfaceHeightFacet always uses this system, and you use SurfaceHeightFacet.getWorld(x, y); to get the height of the terrain on that particular coordinate. Again, the coordinate passed in here is the 3D-world Z coordinate! Not the height! The method returns the height. I hope that helps to clarify that.
+
 Here we are discarding 99% of the positions and setting the remaining values to true at surface height when in the range of the facet.
 
 The last remaining piece is to rasterize these "houses" into the world and then plug all them in to the world builder.
