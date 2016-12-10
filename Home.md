@@ -13,7 +13,7 @@ Read this first if you want to get a general idea of how the world generation co
 7. [Facet Borders](Borders)
 8. [Plugins](Plugins)
 9. [Facet Configuration](Facet Configuration)
-10. [More Advanced Facets](More Advanced Facets)
+10. [More Advanced Facets](Facets Across Borders)
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
 
