@@ -47,32 +47,78 @@ public class TempleFacetProvider implements FacetProvider {
 
     @Override
     public void process(GeneratingRegion region) {
-        Border3D border = region.getBorderForFacet(TempleFacet.class).extendBy(60, 60, 60);
-        TempleFacet templeFacet = new TempleFacet(region.getRegion(), border);
-        SurfaceHeightFacet facet = region.getRegionFacet(SurfaceHeightFacet.class);
-        Rect2i worldRegion = facet.getWorldRegion();
+    }
 
+    @Override public void setSeed(long seed) {
+    }
+}
+```
+
+```java
+public class TempleRasterizer implements WorldRasterizer {
+
+    public static int getSize() {
+    }
+
+    @Override
+    public void initialize() {
+    }
+
+    @Override
+    public void generateChunk(CoreChunk chunk, Region chunkRegion) {
+        
+    }
+}
+
+```
+
+Now we have set up you can continue.
+We only have to change two classes basically, the provider and the rasterizer.
+
+```java
+
+**The TempleFacetProvider**
+
+@Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(sides = 28, bottom = 28, top = 28)))
+@Produces(TempleFacet.class)
+public class TempleFacetProvider implements FacetProvider {
+    private WhiteNoise noise;
+
+    @Override
+    public void process(GeneratingRegion region) {
+        //This gets the border of the TempleFacet and adds 30 by it on the sides/top/bottom.
+        Border3D border = region.getBorderForFacet(TempleFacet.class).extendBy(30, 30, 30);
+        //Creates a temple facet with the specified region and borders.
+        TempleFacet templeFacet = new TempleFacet(region.getRegion(), border);
+        //This takes the SurfaceHeightFacet from the region. It's used to get the correct surface height. (Obviously!)
+        SurfaceHeightFacet facet = region.getRegionFacet(SurfaceHeightFacet.class);
+        //Takes a 2D representation of the world. Like a map of the Earth!! (Important piece!!)
+        Rect2i worldRegion = facet.getWorldRegion();
+        //Loops through the contents of this rectangle.
         for (int wz = worldRegion.minY(); wz <= worldRegion.maxY(); wz++) {
             for (int wx = worldRegion.minX(); wx <= worldRegion.maxX(); wx++) {
+                //Gets the surface height (Also obvious)
                 int surfaceHeight = TeraMath.floorToInt(facet.getWorld(wx, wz));
+                //Checks if the surface height is within the boundries.
                 if (surfaceHeight >= templeFacet.getWorldRegion().minY() &&
                     surfaceHeight <= templeFacet.getWorldRegion().maxY()) {
-
+                    //TODO: add explanation for Noise.
                     if (noise.noise(wx, wz) > 0.9999) {
                         templeFacet.setWorld(wx, surfaceHeight, wz, new Temple());
                     }
                 }
             }
         }
-        region.setRegionFacet(TempleFacet.class, templeFacet);
+        //Adds the TempleFacet to the region.
+        region.setRegionFacet(TempleFacet.class, templeFacet);    
     }
 
     @Override public void setSeed(long seed) {
+        //TODO ADD LINK TO NOISE-explanation
         noise = new WhiteNoise(seed);
     }
 }
 ```
-
 
 
 
