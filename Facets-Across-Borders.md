@@ -162,7 +162,7 @@ for (Entry<BaseVector3i, Temple> entry : templeFacet.getWorldEntries().entrySet(
 ```
 This is the most vital part. If you go check locally on the chunk itself you will get buildings cut in half!
 
-Peform these really basic operations to get the size and such for the pyramid
+Perform these really basic operations to get the size and such for the pyramid
 ```java
 Vector3i basePosition = new Vector3i(entry.getKey());
 int size = TempleRasterizer.getSize();
