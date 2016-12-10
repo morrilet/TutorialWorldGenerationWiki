@@ -24,7 +24,7 @@ Let us start with a problem definition, what do we want?
 > We want to have a good looking pyramid to show off to my friends. It must have some sort of path to get to the center. No more than a few pyramids should spawn on a short distance, so it doesn't get too crowded. We also want to make sure that the pyramid isn't floating!
 
 Okay. That seems a whole lot of work. First things first.
-We should start out with creating our classes. (Try to find the solution on these issues yourself first before copying it from here! It's the best practise!)
+We should start out with creating our classes. (Try to find the solution on these issues yourself first before copying it from here! It's the best practice!)
 
 **Our Facet**
 ```java
