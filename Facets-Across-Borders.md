@@ -90,123 +90,100 @@ We only have to change two classes basically, the provider and the rasterizer.
 ## **Adding the Meat!**
 **The TempleFacetProvider**
 
+
+
+
+First of all, you want to make sure you have added a border on the @Requires annotation Facet. What this does is make sure the Facet provides enough space.
 ```java
-
-
-
 @Requires(@Facet(value = SurfaceHeightFacet.class, border = @FacetBorder(sides = 28, bottom = 28, top = 28)))
-@Produces(TempleFacet.class)
-public class TempleFacetProvider implements FacetProvider {
-    private WhiteNoise noise;
-
-    @Override
-    public void process(GeneratingRegion region) {
-        //This gets the border of the TempleFacet and adds 30 by it on the sides/top/bottom.
-        Border3D border = region.getBorderForFacet(TempleFacet.class).extendBy(30, 30, 30);
-        //Creates a temple facet with the specified region and borders.
-        TempleFacet templeFacet = new TempleFacet(region.getRegion(), border);
-        //This takes the SurfaceHeightFacet from the region. It's used to get the correct surface height. (Obviously!)
-        SurfaceHeightFacet facet = region.getRegionFacet(SurfaceHeightFacet.class);
-        //Takes a 2D representation of the world. Like a map of the Earth!! (Important piece!!)
-        Rect2i worldRegion = facet.getWorldRegion();
-        //Loops through the contents of this rectangle.
-        for (int wz = worldRegion.minY(); wz <= worldRegion.maxY(); wz++) {
-            for (int wx = worldRegion.minX(); wx <= worldRegion.maxX(); wx++) {
-                //Gets the surface height (Also obvious)
-                int surfaceHeight = TeraMath.floorToInt(facet.getWorld(wx, wz));
-                //Checks if the surface height is within the boundries.
-                if (surfaceHeight >= templeFacet.getWorldRegion().minY() &&
-                    surfaceHeight <= templeFacet.getWorldRegion().maxY()) {
-                    //TODO: add explanation for Noise.
-                    if (noise.noise(wx, wz) > 0.9999) {
-                        templeFacet.setWorld(wx, surfaceHeight, wz, new Temple());
-                    }
-                }
-            }
-        }
-        //Adds the TempleFacet to the region.
-        region.setRegionFacet(TempleFacet.class, templeFacet);    
-    }
-
-    @Override public void setSeed(long seed) {
-        //TODO ADD LINK TO NOISE-explanation
-        noise = new WhiteNoise(seed);
-    }
-}
 ```
-
-
+You should add a field with type `WhiteNoise `. We use this to generate randomly.
+This gets the border of the TempleFacet and adds 30 by it on the sides/top/bottom.
 ```java
-public class TempleRasterizer implements WorldRasterizer {
-    private Block stone;
-    private Block dirt;
-
-    public static int getSize() {
-        return 22;
+Border3D border = region.getBorderForFacet(TempleFacet.class).extendBy(30, 30, 30);
+```
+Create a temple facet with the specified region and borders (You have made a variable above (border))
+```java
+TempleFacet templeFacet = new TempleFacet(region.getRegion(), border);
+```
+This takes the SurfaceHeightFacet from the region. It's used to get the correct surface height. (Obviously!)
+We use this to get the surface height of the specified location. (Also quite obvious! :) )
+```java    
+SurfaceHeightFacet facet = region.getRegionFacet(SurfaceHeightFacet.class);
+```
+Takes a 2D representation of the world. Like a map of the Earth!! (Important piece!!)
+```java
+Rect2i worldRegion = facet.getWorldRegion();
+```
+That's about all we need to start looping and doing the nice stuff.  
+Loop through the contents of this rectangle (worldRegion as specified above).
+```java  
+for (int wz = worldRegion.minY(); wz <= worldRegion.maxY(); wz++) {
+    for (int wx = worldRegion.minX(); wx <= worldRegion.maxX(); wx++) {
+        //HERE COMES THE CONTENT!
     }
-
-    @Override
-    public void initialize() {
-        stone = CoreRegistry.get(BlockManager.class).getBlock("Core:Stone");
-        dirt = CoreRegistry.get(BlockManager.class).getBlock("Core:Dirt");
+}
+```
+Then, inside of the inner for-loop, put this piece of code:
+```java         
+int surfaceHeight = TeraMath.floorToInt(facet.getWorld(wx, wz));
+if (surfaceHeight >= templeFacet.getWorldRegion().minY() &&
+    surfaceHeight <= templeFacet.getWorldRegion().maxY()) {
+    if (noise.noise(wx, wz) > 0.9999) {
+        templeFacet.setWorld(wx, surfaceHeight, wz, new Temple());
     }
+}
+```
+Finally, outside of the two for loops write 
+```java 
+region.setRegionFacet(TempleFacet.class, templeFacet); 
+```
+Don't forget to add this. It takes the seed and generates a new WhiteNoise object with it.
+```java
+@Override public void setSeed(long seed) {
+    noise = new WhiteNoise(seed);
+}
+```
 
-    @Override
-    public void generateChunk(CoreChunk chunk, Region chunkRegion) {
+**The TempleRasterizer**
 
-        TempleFacet templeFacet = chunkRegion.getFacet(TempleFacet.class);
+This is the best part, really. Make a Block field inside of the Rasterizer, and in the Initialize method, set this field equal to something like:
+```java
+stone = CoreRegistry.get(BlockManager.class).getBlock("Core:Stone");
+```
+We will be using this Block to fill our pyramid.
+Call the getFacet(); method on the chunkRegion and assign it to a new TempleFacet. Like so:
+```java
+chunkRegion.getFacet(TempleFacet.class);
+```
+Loop through the WorldEntries like so
+```java
+for (Entry<BaseVector3i, Temple> entry : templeFacet.getWorldEntries().entrySet()) {
+```
+This is the most vital part. If you go check locally on the chunk itself you will get buildings cut in half!
 
-        //VERY important! Make sure you get the WORLD entries!
-        for (Entry<BaseVector3i, Temple> entry : templeFacet.getWorldEntries().entrySet()) {
+Peform these really basic operations to get the size and such for the pyramid
+```java
+Vector3i basePosition = new Vector3i(entry.getKey());
+int size = TempleRasterizer.getSize();
+int min = 0;
+int height = (TempleRasterizer.getSize() + 1) / 2;
+```
+We then can start looping through our locations! This is the algorithm I used to generate the pyramid.
 
-            //The vector which defines where the facet has been placed.
-            Vector3i basePosition = new Vector3i(entry.getKey());
-
-            //Basic properties such as size and so on.
-            int size = TempleRasterizer.getSize();
-            int min = 0;
-            int height = (TempleRasterizer.getSize() + 1) / 2;
-
-            //These vectors and regions are here for the paths within the pyramid.
-            Vector3i under = new Vector3i(basePosition).add((size / 2 - 1), 1, 0);
-            Vector3i top = new Vector3i(basePosition).add((size / 2 + 1), 3, size);
-            Vector3i under2 = new Vector3i(basePosition).add(0, 1, (size / 2 - 1));
-            Vector3i top2 = new Vector3i(basePosition).add(size, 3, (size / 2 + 1));
-            Region3i region3i1 = Region3i.createFromMinMax(under, top);
-            Region3i region3i2 = Region3i.createFromMinMax(under2, top2);
-
-            //Makes sure that below the pyramid there will be dirt, to prevent pyramids from floating like birds.
-            for (int i = 1; i < 50; i++) {
-                for (int x = 0; x <= size; x++) {
-                    for (int z = 0; z <= size; z++) {
-                        Vector3i chunkBlockPosition = new Vector3i(x, 0, z).add(basePosition).sub(0, i, 0);
-                        if (chunk.getRegion().encompasses(chunkBlockPosition))
-                            chunk.setBlock(ChunkMath.calcBlockPos(chunkBlockPosition), dirt);
-
-                    }
-                }
-            }
-            //This is where we actually spawn the pyramid. Read the code! Very important.
-            for (int i = 0; i <= height; i++) {
-                for (int x = min; x <= size; x++) {
-                    for (int z = min; z <= size; z++) {
-                        Vector3i chunkBlockPosition = new Vector3i(x, i, z).add(basePosition);
-                        if (chunk.getRegion().encompasses(chunkBlockPosition) &&                        !region3i1.encompasses(chunkBlockPosition) && !region3i2.encompasses(chunkBlockPosition))
-                            chunk.setBlock(ChunkMath.calcBlockPos(chunkBlockPosition), stone);
-
-                    }
-                }
-                min++;
-                size--;
-            }
+```java   
+for (int i = 0; i <= height; i++) {
+    for (int x = min; x <= size; x++) {
+        for (int z = min; z <= size; z++) {
+            Vector3i chunkBlockPosition = new Vector3i(x, i, z).add(basePosition);
+            if (chunk.getRegion().encompasses(chunkBlockPosition) && !region3i1.encompasses(chunkBlockPosition) &&     !region3i2.encompasses(chunkBlockPosition))
+                chunk.setBlock(ChunkMath.calcBlockPos(chunkBlockPosition), stone);
 
         }
     }
+    min++;
+    size--;
 }
-
 ```
 
-
-
-//TODO: add more content
-
+//TODO: add repo location.
