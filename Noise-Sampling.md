@@ -1,7 +1,7 @@
 Now that we have the basic infrastructure of the facet system down pat.  We can do some more fun stuff,  namely make it not as flat.  Noise to the rescue!  We will use the seed information given to our ```SurfaceProvider``` to generate noise and apply it to our surface height.
 
 ```java
-    private Noise2D surfaceNoise;
+    private Noise surfaceNoise;
 
     @Override
     public void setSeed(long seed) {
@@ -25,7 +25,7 @@ Lets smooth it out a little bit by using subsampling (lerps between noise values
 ```java
     @Override
     public void setSeed(long seed) {
-        surfaceNoise = new SubSampledNoise2D(new Noise3DTo2DAdapter(new SimplexNoise(seed), 0), new Vector2f(0.01f, 0.01f), 1);
+        surfaceNoise = new SubSampledNoise(new SimplexNoise(seed), new Vector2f(0.01f, 0.01f), 1);
     }
 ```
 Progress!  Now we have some rolling hills.
