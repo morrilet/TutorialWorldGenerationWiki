@@ -7,7 +7,7 @@ public class MountainsProvider implements FacetProvider {
 
     @Override
     public void setSeed(long seed) {
-        mountainNoise = new SubSampledNoise2D(new Noise3DTo2DAdapter(new BrownianNoise3D(new PerlinNoise(seed + 2), 8)), new Vector2f(0.001f, 0.001f), 1);
+        mountainNoise = new SubSampledNoise(new BrownianNoise(new PerlinNoise(seed + 2), 8), new Vector2f(0.001f, 0.001f), 1);
     }
 
     @Override
