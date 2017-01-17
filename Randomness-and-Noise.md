@@ -23,4 +23,4 @@ The `FastNoise` class is a bit different as it works on discrete numbers. This i
 
 ![An overview over different noise implementations](https://cloud.githubusercontent.com/assets/1820007/5960183/f31d5402-a7d3-11e4-90f3-6bee10c7d2ce.png)
 
-*Originally added at https://github.com/MovingBlocks/Terasology/wiki/Randomness-and-Noise**
+*Originally added at https://github.com/MovingBlocks/Terasology/wiki/Randomness-and-Noise*
