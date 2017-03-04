@@ -13,7 +13,7 @@ And plug it in to our facet data
         // loop through every position on our 2d array
         Rect2i processRegion = facet.getWorldRegion();
         for (BaseVector2i position : processRegion.contents()) {
-            facet.setWorld(position, surfaceNoise.noise(position.x, position.y));
+            facet.setWorld(position, surfaceNoise.noise(position.getX(), position.getY()));
         }
 ```
 And if you are lucky like me,  you end up with a bumpy patch of dirt as the noise is only between -1 and 1
