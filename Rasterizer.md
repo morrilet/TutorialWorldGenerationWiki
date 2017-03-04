@@ -8,7 +8,7 @@ public class TutorialWorldGenerator extends BaseFacetedWorldGenerator{
     @In
     private WorldGeneratorPluginLibrary worldGeneratorPluginLibrary;
     
-    public WorldGenerator(SimpleUri uri) {
+    public TutorialWorldGenerator(SimpleUri uri) {
         super(uri);
     }
 
