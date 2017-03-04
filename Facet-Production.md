@@ -53,7 +53,7 @@ protected WorldBuilder createWorld() {
 }
 ```
 
-(Oh, right - don't forget to put in the ```SeaLevelProvider``` so that the game doesnt spawn the player 100 meters underwater!)
+(Oh, right - don't forget to put in the ```SeaLevelProvider``` so that the game doesn't spawn the player 100 meters underwater! You'd need to add Core as a dependency in the new module's `module.txt` file. Make sure to recompile or do a `gradlew idea` followed by an Intellij restart.)
 
 Now, when we run the rasterizer, we can access this facet data that we have provided.  Lets use it:
 
