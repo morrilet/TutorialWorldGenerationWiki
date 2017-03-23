@@ -5,15 +5,15 @@ Read this first if you want to get a general idea of how the world generation co
 
 ##Tutorial
 1. [Rasterizer](Rasterizer)
-2. [Facet Production](Facet Production)
-3. [Noise Sampling](Noise Sampling)
-4. [Facet Modification](Facet Modification)
-5. [Facet Configuration](Facet Configuration)
-6. [Additional Facet Production](Additional Facet Production)
+2. [Facet Production](Facet-Production)
+3. [Noise Sampling](Noise-Sampling)
+4. [Facet Modification](Facet-Modification)
+5. [Facet Configuration](Facet-Configuration)
+6. [Additional Facet Production](Additional-Facet-Production)
 7. [Facet Borders](Borders)
 8. [Plugins](Plugins)
-9. [Facet Configuration](Facet Configuration)
-10. [More Advanced Facets](Facets Across Borders)
+9. [Facet Configuration](Facet-Configuration)
+10. [More Advanced Facets](Facets-Across-Borders)
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
 
