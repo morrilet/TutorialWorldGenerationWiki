@@ -77,4 +77,4 @@ java.lang.IllegalStateException: surface height facet not found
 
 ...well, that's not quite what we wanted. To get our world generator working, we also need to provide surface information so that the spawn algorithm can find where the surface is and gently place new players there. 
 
-[Next: Facet Production](Facet Production)
+[Next: Facet Production](Facet-Production)
