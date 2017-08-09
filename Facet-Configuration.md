@@ -1,6 +1,6 @@
-You can allow your FacetProvider to be configured by implementing ConfigurableFacetProvider and providing a custom configuration class that implements Component.  The user interface will automatically detect this and provide the user with configuration options based on your custom configuration classes. 
+You can allow your FacetProvider to be configured by implementing ConfigurableFacetProvider and providing a custom configuration class that implements Component.  The user interface will automatically detect this and provide the user with configuration options based on your custom configuration classes.
 
-Let's allow users to configure the height of the mountains in the MountainsProvider. First let's create an inner class called MountainsConfiguration inside our MountainsProvider class and make it implement Component. 
+Let's allow users to configure the height of the mountains in the MountainsProvider. First let's create an inner class called MountainsConfiguration inside our MountainsProvider class and make it implement Component.
 
 ```java
 private static class MountainsConfiguration implements Component {
@@ -9,7 +9,7 @@ private static class MountainsConfiguration implements Component {
 }
 ```
 
-Notice the @Range annotation. This tells the UI what components to render for the user. There are more annotations available like @TextField, @Checkbox and @OneOf but @Range is generally the one you will use for your world gen configurations. If you want to know more about those components you can check out the classes in org.terasology.rendering.nui. 
+Notice the @Range annotation. This tells the UI what components to render for the user. There are more annotations available like @TextField, @Checkbox and @OneOf but @Range is generally the one you will use for your world gen configurations. If you want to know more about those components you can check out the classes in org.terasology.rendering.nui.
 
 Next, we need to make MountainsProvider implement ConfigurableFacetProvider instead of FacetProvider. This lets the UI automatically discover the configuration options. Here is the methods in ConfigurableFacetProvider that you will have to now implement:
 ```java
@@ -79,7 +79,7 @@ public class MountainsProvider implements ConfigurableFacetProvider {
 }
 ```
 
-The above code has one mistake in it. Can you spot it? We aren't using our configurable mountain height in the process() method. We need to change 
+The above code has one mistake in it. Can you spot it? We aren't using our configurable mountain height in the process() method. We need to change
 ```java
 float mountainHeight = 400;
 ```
@@ -88,12 +88,12 @@ to
 float mountainHeight = configuration.mountainHeight;
 ```
 
-Run the code and you should see your options in the "Details" screen as in the screenshots below. 
+Run the code and you should see your options in the "Details" screen as in the screenshots below.
 
-**NOTE**: You can have multiple @Ranges in your configuration class. Each one will show up under your configuration section(Mountains in this case). 
+**NOTE**: You can have multiple @Ranges in your configuration class. Each one will show up under your configuration section(Mountains in this case).
 
 ![Facet Configuration1](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/FacetConfiguration1.png)
 
 ![Facet Configuration2](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/FacetConfiguration2.png)
 
-[Next: Additional Facet Production](Additional Facet Production)
+[Next: Additional Facet Production](Additional-Facet-Production)

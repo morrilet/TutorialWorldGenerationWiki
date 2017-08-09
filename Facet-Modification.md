@@ -46,4 +46,4 @@ And now we have the cliffs of insanity!
 
 ![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Facet%20Modification.png)
 
-[Next: Facet Configuration](Facet Configuration)
+[Next: Facet Configuration](Facet-Configuration)
