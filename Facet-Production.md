@@ -76,4 +76,4 @@ Now run the generator again and witness lots of exciting dirt at y=10!
 
 ![Facet Production](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Facet%20Production.png)
 
-[Next: Noise Sampling](Noise Sampling)
+[Next: Noise Sampling](Noise-Sampling)
