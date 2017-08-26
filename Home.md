@@ -14,6 +14,7 @@ Read this first if you want to get a general idea of how the world generation co
 8. [Plugins](Plugins)
 9. [Facet Configuration](Facet-Configuration)
 10. [More Advanced Facets](Facets-Across-Borders)
+11. [Zones](Zones)
 
 [Common errors you can avoid](Common-errors-you-can-avoid)
 
