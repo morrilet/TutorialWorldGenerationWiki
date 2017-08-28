@@ -1,4 +1,4 @@
-Note: zones are a feature for v2, so the v2.0.0 branch of the engine must be used to access these features
+❗️ **Note:** zones are a feature for v2, so the `v2.0.0` branch of the engine must be used to access these features!
 
 ### What are zones
 
