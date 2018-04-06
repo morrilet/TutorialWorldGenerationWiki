@@ -33,7 +33,7 @@ public class TutorialWorldRasterizer implements WorldRasterizer {
 }
 ```
 
-The `generateChunk()` method is where the magic will happen - the ```chunk``` parameter interacts directly with chunk storage where you can place blocks, while the ```chunkRegion``` parameter holds metadata about the world.  There's nothing in the ```chunkRegion``` method right now,  but we will get there soon enough :)
+The `generateChunk()` method is where the magic will happen - the ```chunk``` parameter interacts directly with chunk storage where you can place blocks, while the ```chunkRegion``` parameter holds metadata about the world.  There's nothing in the `generateChunk()` method right now,  but we will get there soon enough :)
 
 Now let's add some basic rasterization, replacing every block below y=0 with dirt.
 

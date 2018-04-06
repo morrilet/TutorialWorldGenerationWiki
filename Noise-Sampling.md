@@ -13,14 +13,14 @@ And plug it in to our facet data
         // loop through every position on our 2d array
         Rect2i processRegion = facet.getWorldRegion();
         for (BaseVector2i position : processRegion.contents()) {
-            facet.setWorld(position, surfaceNoise.noise(position.getX(), position.getY()));
+            facet.setWorld(position, surfaceNoise.noise(position.x(), position.y()));
         }
 ```
 And if you are lucky like me,  you end up with a bumpy patch of dirt as the noise is only between -1 and 1
 
 Lets smooth it out a little bit by using subsampling (lerps between noise values) to gradually get to various noise values. And scale it up a bit so that we can get random surface values that are more interesting.
 ```java
-        facet.setWorld(position, surfaceNoise.noise(position.x, position.y) * 20);
+        facet.setWorld(position, surfaceNoise.noise(position.x(), position.y()) * 20);
 ```
 ```java
     @Override
@@ -28,7 +28,7 @@ Lets smooth it out a little bit by using subsampling (lerps between noise values
         surfaceNoise = new SubSampledNoise(new SimplexNoise(seed), new Vector2f(0.01f, 0.01f), 1);
     }
 ```
-Progress!  Now we have some rolling hills.
+Progress! Now we have some rolling hills.
 
 ![image](https://raw.githubusercontent.com/Terasology/TutorialWorldGeneration/master/images/Noise%20Sampling.png)
 

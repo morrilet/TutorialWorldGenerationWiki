@@ -11,7 +11,7 @@ private static class MountainsConfiguration implements Component {
 
 Notice the @Range annotation. This tells the UI what components to render for the user. There are more annotations available like @TextField, @Checkbox and @OneOf but @Range is generally the one you will use for your world gen configurations. If you want to know more about those components you can check out the classes in org.terasology.rendering.nui.
 
-Next, we need to make MountainsProvider implement ConfigurableFacetProvider instead of FacetProvider. This lets the UI automatically discover the configuration options. Here is the methods in ConfigurableFacetProvider that you will have to now implement:
+Next, we need to make MountainsProvider implement ConfigurableFacetProvider instead of FacetProvider. This lets the UI automatically discover the configuration options. Here are the methods in ConfigurableFacetProvider that you will have to now implement:
 ```java
 public interface ConfigurableFacetProvider extends FacetProvider {
     String getConfigurationName();

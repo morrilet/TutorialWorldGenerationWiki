@@ -1,4 +1,4 @@
-And now for some fun with metadata.  As mentioned before, need to provide surface height information so that our rasterizer can read this data and put blocks & players in the right place.  Fortunately, the engine provides us with a facet definition for this, `SurfaceHeightFacet` - a 2d representation of the surface of the world.  Each (X; Y) position holds the value of the height of the surface.
+And now for some fun with metadata.  As mentioned before, we need to provide surface height information so that our rasterizer can read this data and put blocks & players in the right place.  Fortunately, the engine provides us with a facet definition for this, `SurfaceHeightFacet` - a 2d representation of the surface of the world.  Each (X; Y) position holds the value of the height of the surface.
 
 Let's start with a skeleton class:
 ```java
@@ -53,7 +53,7 @@ protected WorldBuilder createWorld() {
 }
 ```
 
-(Oh, right - don't forget to put in the ```SeaLevelProvider``` so that the game doesn't spawn the player 100 meters underwater! You'd need to add Core as a dependency in the new module's `module.txt` file. Make sure to recompile or do a `gradlew idea` followed by an Intellij restart.)
+(Oh, right - don't forget to put in the ```SeaLevelProvider``` so that the game doesn't spawn the player 100 meters underwater! You'll need to add Core as a dependency in the new module's `module.txt` file. Make sure to recompile or do a `gradlew idea` followed by an Intellij restart.)
 
 Now, when we run the rasterizer, we can access this facet data that we have provided.  Lets use it:
 

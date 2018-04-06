@@ -18,8 +18,8 @@ public class MountainsProvider implements FacetProvider {
         Rect2i processRegion = facet.getWorldRegion();
         for (BaseVector2i position : processRegion.contents()) {
             // scale our max mountain height to noise (between -1 and 1)
-            float additiveMountainHeight = mountainNoise.noise(position.getX(), position.getY()) * mountainHeight;
-            // dont bother subtracting mountain height,  that will allow unaffected regions
+            float additiveMountainHeight = mountainNoise.noise(position.x(), position.y()) * mountainHeight;
+            // dont bother subtracting mountain height, that will allow unaffected regions
             additiveMountainHeight = TeraMath.clamp(additiveMountainHeight, 0, mountainHeight);
 
             facet.setWorld(position, facet.getWorld(position) + additiveMountainHeight);
@@ -33,8 +33,8 @@ Dont miss the ```@Updates``` magic that allows this provider to be ordered corre
 And we add it to our world builder:
 ```java
     @Override
-    protected WorldBuilder createWorld(long seed) {
-        return new WorldBuilder(seed)
+    protected WorldBuilder createWorld() {
+        return new WorldBuilder(worldGeneratorPluginLibrary)
                 .addProvider(new SurfaceProvider())
                 .addProvider(new SeaLevelProvider(0))
                 .addProvider(new MountainsProvider())
